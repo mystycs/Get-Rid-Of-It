@@ -1,10 +1,9 @@
 <h2> My Listings: </h2>
 
-<% @listings.each do |listing| %>
-  <!-- <a href="/listings/<%=listing.id%>"><%= listing.title %><br /></a> !--><%= listing.title %><br/>
-  $ <%= listing.price %><br />
+<% @listings.each_with_index do |listing, index| %>
+
+  <!--<%= "#{index+1}" %>.!-->   <!--<%= "#{index+1}" %>.!--> <a href="/listings/<%=listing.id%>"><%= listing.title %></a> - $<%= listing.price %><br />
   <%= listing.location %><br />
   <%= listing.description %><br />
-
-  <br />
+  <p>---</p>
 <% end %>

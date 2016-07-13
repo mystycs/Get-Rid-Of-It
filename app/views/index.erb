@@ -1,9 +1,8 @@
 <h2>Welcome to Get Rid Of It!</h2>
 <h3> Listings: </h3>
-<% @listings.each do |listing| %>
-  <%= listing.id %>. <a href="/listings/<%=listing.id%>"><%= listing.title %></a><br />
-  $ <%= listing.price %><br />
+<% @listings.each_with_index do |listing, index| %>
+  <!--<%= "#{index+1}" %>.!--> <a href="/listings/<%=listing.id%>"><%= listing.title %></a> - $<%= listing.price %><br />
   <%= listing.location %><br />
   <%= listing.description %><br />
-  <br />
+  <p>---</p>
 <% end %>
