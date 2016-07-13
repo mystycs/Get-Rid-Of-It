@@ -6,12 +6,28 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, "kwyjibo" # https://www.youtube.com/watch?v=HMGWCSVRAzo
+    set :session_secret, "meowmix"
   end
 
 
   get '/' do
     erb :index
   end
+
+  helpers do
+  def redirect_if_not_logged_in
+    if !logged_in?
+      redirect "/login?error=You must be logged in to do that!"
+    end
+  end
+
+  def logged_in?
+    !!session[:user_id]
+  end
+
+  def current_user
+    User.find(session[:user_id])
+  end
+
 
 end
