@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
 
   get "/listings" do
     redirect_if_not_logged_in
-    @listings = Listing.all
+    @listings = current_user.listings
     erb :'listings/index'
   end
 

@@ -11,7 +11,8 @@
   <input type="text" name="location"> </br>
 
   <label> Description </label>
-  <input type="text" name="description"> </br>
+  <input type="text" name="description"></br>
+  <input type="hidden" value="<%=current_user.id %>" name="user_id"> 
 
   <input type="submit" value="Create">
 </form>
