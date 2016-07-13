@@ -22,4 +22,10 @@ class ListingsController < ApplicationController
   redirect "/listings"
 end
 
+  get "/listings/:id" do
+  redirect_if_not_logged_in
+  @listings = Listing.find(params[:id])
+  erb :'listings/show'
+end
+
 end

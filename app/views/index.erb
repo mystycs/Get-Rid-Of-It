@@ -1,1 +1,9 @@
 <h2>Welcome to Get Rid Of It!</h2>
+<h3> Listings: </h3>
+<% @listings.each do |listing| %>
+  <%= listing.id %>. <a href="/listings/<%=listing.id%>"><%= listing.title %></a><br />
+  $ <%= listing.price %><br />
+  <%= listing.location %><br />
+  <%= listing.description %><br />
+  <br />
+<% end %>

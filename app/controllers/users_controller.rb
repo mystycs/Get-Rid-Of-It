@@ -5,19 +5,19 @@ class UsersController < ApplicationController
     redirect '/listings'
   end
 
-  @user = User.find(params[:id])
-  if !@user.nil? && @user == current_user
-    erb :'users/show'
-  else
-    redirect '/listings'
-  end
+  # @user = User.find(params[:id])
+  # if !@user.nil? && @user == current_user
+  #   erb :'users/show'
+  # else
+  #   redirect '/listings'
+  # end
 end
 
   get '/signup' do
     if !session[:user_id]
       erb :'users/new'
     else
-      redirect to '/listings'
+      redirect to '/'
     end
   end
 
@@ -27,7 +27,7 @@ end
     else
       @user = User.create(:username => params[:username], :password => params[:password])
       session[:user_id] = @user.id
-      redirect '/listings'
+      redirect '/'
     end
   end
 
@@ -36,7 +36,7 @@ end
     if !session[:user_id]
       erb :'users/login'
     else
-      redirect '/listings'
+      redirect '/'
     end
   end
 
@@ -44,7 +44,7 @@ end
     user = User.find_by(:username => params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect "/listings"
+      redirect "/"
     else
       redirect to '/signup'
     end

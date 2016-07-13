@@ -1,6 +1,6 @@
 <p> Here are your Listings </p>
 <% @user.listings.each do |listing| %>
   <ul>
-    <li><a href="/listings/<%=listing.id%>"><%= listing.name %></a></li>
+    <li><a href="/listings/<%=listing.id%>"><%= listing.title %></a></li>
   </ul>
 <% end %>
