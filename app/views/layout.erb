@@ -4,6 +4,14 @@
     <title>Get Rid Of It</title>
   </head>
   <body>
-    <%= yield %> 
+    <nav>
+  <% if logged_in? %>
+ <!-- login content here !-->
+  <% else %>
+    <a href="/signup">Sign Up</a>
+    <a href="/login"> Sign In </a>
+  <%end %>
+</nav>
+    <%= yield %>
   </body>
 </html>
