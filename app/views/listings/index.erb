@@ -1,7 +1,7 @@
 <% @listings.each do |listing| %>
-  <%= listings.title %><br />
-  <%= listings.price %><br />
-  <%= listings.location %><br />
-  <%= listings.description %><br />
+  <%= listing.title %><br />
+  $ <%= listing.price %><br />
+  <%= listing.location %><br />
+  <%= listing.description %><br />
   <br />
 <% end %>
