@@ -1,5 +1,7 @@
+<h2> My Listings: </h2>
+
 <% @listings.each do |listing| %>
-  <a href="/listings/<%=listing.id%>"><%= listing.title %><br /></a>
+  <!-- <a href="/listings/<%=listing.id%>"><%= listing.title %><br /></a> !--><%= listing.title %><br/>
   $ <%= listing.price %><br />
   <%= listing.location %><br />
   <%= listing.description %><br />
