@@ -47,5 +47,21 @@ class ListingsController < ApplicationController
     end
   end
 
+  patch '/listings/:id' do
+    @listing = Listing.find_by_id(params[:id])
+    @userid = current_user
+     if params[:title] == '' && params[:price] == '' && params[:location] == ''
+       redirect "/listings/#{params[:id]}/edit"
+     elsif @userid.id == @listing.user.id
+       @listing.title = params[:title]
+       @listing.price = params[:price]
+       @listing.location =  params[:location]
+       @listing.description =  params[:description]
+       @listing.save
+       redirect to '/listings'
+     else
+       redirect to '/listings'
+     end
+   end
 
 end

@@ -1,5 +1,6 @@
 <h1>Edit Listing: <%= @listing.title %></h1>
-<form action="/listing/<%=@listing.id %>" method="POST">
+<form action="/listings/<%=@listing.id %>" method="POST">
+  <input type="hidden" name="_method" value="patch">
   <label> Title: </label>
   <input type="text" name="title" value="<%=@listing.title %>"> </br>
 
