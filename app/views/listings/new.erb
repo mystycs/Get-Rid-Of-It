@@ -1,18 +1,18 @@
 <h1>Add a New Listing</h1>
 
 <form action="/listings" method="POST">
-  <label> Title </label>
+  <label> Title: </label>
   <input type="text" name="title"> </br>
 
-  <label> Price </label>
+  <label> Price: </label>
   <input type="text" name="price"> </br>
 
-  <label> Location </label>
+  <label> Location: </label>
   <input type="text" name="location"> </br>
 
-  <label> Description </label>
-  <input type="text" name="description"></br>
-  <input type="hidden" value="<%=current_user.id %>" name="user_id"> 
+  <label> Description: </label></br>
+  <textarea rows="4" cols="50" name="description"></textarea></br>
+  <input type="hidden" value="<%=current_user.id %>" name="user_id">
 
   <input type="submit" value="Create">
 </form>

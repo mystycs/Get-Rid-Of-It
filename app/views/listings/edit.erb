@@ -1,0 +1,17 @@
+<h1>Edit Listing: <%= @listing.title %></h1>
+
+<form action="/listing/<%=@listing.id %>" method="POST">
+  <label> Title: </label>
+  <input type="text" name="title" value="<%=@listing.title %>"> </br>
+
+  <label> Price: </label>
+  <input type="text" name="price" value="<%=@listing.price %>"> </br>
+
+  <label> Location: </label>
+  <input type="text" name="location" value="<%=@listing.location %>">  </br>
+
+  <label> Description: </label></br>
+  <textarea rows="4" cols="50" name="description"><%=@listing.description %></textarea></br>
+
+  <input type="submit" value="Update">
+</form>

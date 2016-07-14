@@ -25,7 +25,15 @@ end
   get "/listings/:id" do
   redirect_if_not_logged_in
   @listings = Listing.find(params[:id])
+  @user = User.find(params[:id])
   erb :'listings/show'
+end
+
+get "/listings/:id/edit" do
+  redirect_if_not_logged_in
+  @error_message = params[:error]
+  @listing = Listing.find(params[:id])
+  erb :'listings/edit'
 end
 
 end

@@ -1,5 +1,4 @@
-<%= @listings.title %><br />
-$ <%= @listings.price %><br />
+<%= @listings.title %> - $<%= @listings.price %> - <a href="/listings/<%=@listings.id%>/edit">(edit)</a><br />
 <%= @listings.location %><br />
 <%= @listings.description %><br />
-Posted by: <%= @listings.id %><br />
+Posted by: <%= @user.username %>
