@@ -50,7 +50,7 @@ class ListingsController < ApplicationController
   patch '/listings/:id' do
     @listing = Listing.find_by_id(params[:id])
     @userid = current_user
-     if params[:title] == '' && params[:price] == '' && params[:location] == ''
+     if params[:title] == '' && params[:price] == '' && params[:location] == '' && params[:description] == ''
        redirect "/listings/#{params[:id]}/edit"
      elsif @userid.id == @listing.user.id
        @listing.title = params[:title]
