@@ -1,5 +1,4 @@
 <h1>Edit Listing: <%= @listing.title %></h1>
-
 <form action="/listing/<%=@listing.id %>" method="POST">
   <label> Title: </label>
   <input type="text" name="title" value="<%=@listing.title %>"> </br>
@@ -11,7 +10,15 @@
   <input type="text" name="location" value="<%=@listing.location %>">  </br>
 
   <label> Description: </label></br>
-  <textarea rows="4" cols="50" name="description"><%=@listing.description %></textarea></br>
+  <textarea rows="4" cols="50" name="description"><%=@listing.description  %></textarea></br>
 
   <input type="submit" value="Update">
+
+</form>
+
+<br/>
+
+<form method="POST" action="/listings/<%= @listing.id %>/delete">
+<input id="hidden" type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete Listing">
 </form>

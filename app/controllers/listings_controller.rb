@@ -18,22 +18,34 @@ class ListingsController < ApplicationController
   unless Listing.valid_params?(params)
     redirect "/listings/new?error=invalid posting"
   end
-  Listing.create(params)
-  redirect "/listings"
-end
+    Listing.create(params)
+    redirect "/listings"
+  end
 
   get "/listings/:id" do
-  redirect_if_not_logged_in
-  @listings = Listing.find(params[:id])
-  @user = User.find(params[:id])
-  erb :'listings/show'
-end
+    redirect_if_not_logged_in
+    @listings = Listing.find(params[:id])
+    erb :'listings/show'
+  end
 
-get "/listings/:id/edit" do
-  redirect_if_not_logged_in
-  @error_message = params[:error]
-  @listing = Listing.find(params[:id])
-  erb :'listings/edit'
-end
+  get "/listings/:id/edit" do
+    redirect_if_not_logged_in
+    @error_message = params[:error]
+    @listing = Listing.find(params[:id])
+    erb :'listings/edit'
+  end
+
+
+  delete '/listings/:id/delete' do
+    @listing = Listing.find(params[:id])
+    @userid = current_user
+    if @userid.id == @listing.user.id #&& !!session[:user_id]
+      @listing.delete
+      redirect '/'
+    else
+      redirect '/login'
+    end
+  end
+
 
 end
