@@ -2,20 +2,36 @@
 <html>
   <head>
     <title>Get Rid Of It</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   </head>
   <body>
-    <nav>
-  <% if logged_in? %>
-  <a href="/listings/new"> Create a Listing</a> |
-  <a href="/"> Listings</a> |
-  <a href="/listings"> My Listings</a> |
-  <a href="/logout"> Log Out</a>
-  <p>Welcome, <%=current_user.username %></p>
-  <% else %>
-    <a href="/signup">Sign Up</a>
-    <a href="/login"> Sign In </a>
-  <%end %>
-</nav>
-    <%= yield %>
+    <nav class="navbar navbar-default navbar-static-top">
+      <ul class="nav navbar-nav">
+        <% if logged_in? %>
+          <li class="<%= "active" if active_page?("listings/new") %>"><a href="/listings/new"> Create a Listing</a></li>
+          <li class="<%= "active" if active_page?("") %>"><a href="/"> Listings</a></li>
+          <li class="<%= "active" if active_page?("listings") %>"><a href="/listings"> My Listings</a></li>
+          <li><a href="/logout"> Log Out</a></li>
+        <% else %>
+          <li class="<%= "active" if active_page?("") %>"> <a href="/">Home</a></li>
+          <li class="<%= "active" if active_page?("signup") %>"> <a href="/signup">Sign Up</a></li>
+          <li class="<%= "active" if active_page?("login") %>"> <a href="/login"> Sign In </a></li>
+        </ul>
+        <%end %>
+      </ul>
+        <% if logged_in? %>
+      <p class="navbar-text navbar-right" style ="margin-right: 15px;"> Welcome, <%=current_user.username %></p>
+      <% end %>
+    </nav>
+<div class="container">
+  <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8"><%= yield %></div>
+        <div class="col-md-2"></div>
+      </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   </body>
 </html>

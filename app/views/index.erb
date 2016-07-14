@@ -1,8 +1,9 @@
-<h2>Welcome to Get Rid Of It!</h2>
+<div class="jumbotron"><h2>Welcome to Get Rid Of It!</h2>
 <h3> Listings: </h3>
 <% @listings.each_with_index do |listing, index| %>
   <% if index > 0 %><p>---</p><%end%>
-  <a href="/listings/<%=listing.id%>"><%= listing.title %></a> - $<%= listing.price %><br />
+  <a href="/listings/<%=listing.id%>"><b><%= listing.title %></b></a> - $<%= listing.price %><br />
   <%= listing.location %><br />
   <%= listing.description %><br />
 <% end %>
+</div>
