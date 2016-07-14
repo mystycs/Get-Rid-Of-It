@@ -39,7 +39,7 @@ class ListingsController < ApplicationController
   delete '/listings/:id/delete' do
     @listing = Listing.find(params[:id])
     @userid = current_user
-    if @userid.id == @listing.user.id 
+    if @userid.id == @listing.user.id
       @listing.delete
       redirect '/?deleted=Your Listing has been deleted.'
     else
