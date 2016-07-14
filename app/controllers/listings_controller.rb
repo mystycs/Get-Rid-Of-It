@@ -2,6 +2,7 @@ class ListingsController < ApplicationController
   get '/listings' do
     redirect_if_not_logged_in
     @listings = current_user.listings
+    @green_message = params[:success]
     erb :'listings/index'
   end
 
@@ -15,10 +16,10 @@ class ListingsController < ApplicationController
     redirect_if_not_logged_in
 
     unless Listing.valid_params?(params)
-      redirect '/listings/new?error=invalid posting'
+      redirect '/listings/new?error=Title, Price and Location are Required Fields.'
     end
     Listing.create(params)
-    redirect '/listings'
+    redirect '/listings?success=You have successfully posted a listing.'
   end
 
   get '/listings/:id' do
@@ -39,7 +40,7 @@ class ListingsController < ApplicationController
     @userid = current_user
     if @userid.id == @listing.user.id # && !!session[:user_id]
       @listing.delete
-      redirect '/'
+      redirect '/?deleted=Your Listing has been deleted.'
     else
       redirect '/login'
     end

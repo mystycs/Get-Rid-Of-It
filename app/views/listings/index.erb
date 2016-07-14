@@ -3,7 +3,7 @@
 <% @listings.each_with_index do |listing, index| %>
   <% if index > 0 %><p>---</p><%end%>
   <a href="/listings/<%=listing.id%>"><b><%= listing.title %></b></a> - $<%= listing.price %> - <a href="/listings/<%=listing.id%>/edit">(edit)</a> <br />
-  <%= listing.location %><br />
-  <%= listing.description %><br />
+  Location: <%= listing.location %><br />
+  Description: <%= listing.description %><br />
 <% end %>
 </div>

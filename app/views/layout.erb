@@ -24,6 +24,21 @@
       <% end %>
     </nav>
 <div class="container">
+  <% if !@error_message.nil? %>
+    <div class="alert alert-warning">
+    <%= @error_message %>
+    </div>
+  <% end %>
+  <% if !@red_message.nil? %>
+    <div class="alert alert-danger">
+    <%= @red_message %>
+    </div>
+  <% end %>
+  <% if !@green_message.nil? %>
+    <div class="alert alert-success">
+    <%= @green_message %>
+    </div>
+  <% end %>
   <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8"><%= yield %></div>

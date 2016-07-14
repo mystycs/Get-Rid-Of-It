@@ -10,6 +10,8 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
     @listings = Listing.all
+    @red_message = params[:deleted]
+    @green_message = params[:success]
     erb :index
   end
 
