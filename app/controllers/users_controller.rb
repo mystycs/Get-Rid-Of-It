@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   get '/login' do
-    @error_message = params[:error]
+    @yellow_message = params[:notify]
     if !session[:user_id]
       erb :'users/login'
     else
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   get '/logout' do
     if !session[:user_id].nil?
       session.destroy
-      redirect to '/'
+      redirect to '/?notify=You have successfully logged out.'
     else
       redirect to '/'
     end

@@ -24,9 +24,9 @@
       <% end %>
     </nav>
 <div class="container">
-  <% if !@error_message.nil? %>
+  <% if !@yellow_message.nil? %>
     <div class="alert alert-warning">
-    <%= @error_message %>
+    <%= @yellow_message %>
     </div>
   <% end %>
   <% if !@red_message.nil? %>

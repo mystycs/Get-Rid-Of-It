@@ -8,7 +8,7 @@ class ListingsController < ApplicationController
 
   get '/listings/new' do
     redirect_if_not_logged_in
-    @error_message = params[:error]
+    @yellow_message = params[:notify]
     erb :'listings/new'
   end
 
@@ -16,7 +16,7 @@ class ListingsController < ApplicationController
     redirect_if_not_logged_in
 
     unless Listing.valid_params?(params)
-      redirect '/listings/new?error=Title, Price and Location are Required Fields.'
+      redirect '/listings/new?notify=Title, Price and Location are Required Fields.'
     end
     Listing.create(params)
     redirect '/listings?success=You have successfully posted a listing.'
@@ -30,7 +30,7 @@ class ListingsController < ApplicationController
 
   get '/listings/:id/edit' do
     redirect_if_not_logged_in
-    @error_message = params[:error]
+    @yellow_message = params[:notify]
     @listing = Listing.find(params[:id])
     erb :'listings/edit'
   end

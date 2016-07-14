@@ -10,6 +10,7 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
     @listings = Listing.all
+    @yellow_message = params[:notify]
     @red_message = params[:deleted]
     @green_message = params[:success]
     erb :index
@@ -17,7 +18,7 @@ class ApplicationController < Sinatra::Base
 
   helpers do
     def redirect_if_not_logged_in
-      redirect '/login?error=You must be logged in to do that!' unless logged_in?
+      redirect '/login?notify=You must be logged in to do that!' unless logged_in?
     end
 
     def logged_in?
