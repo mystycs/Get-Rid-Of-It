@@ -2,8 +2,8 @@
 <b><%= @listings.title %></b> - $<%= @listings.price %>
 <% if current_user.id == @listings.user.id %>
  - <a href="/listings/<%=@listings.id%>/edit">(edit)</a>
-<% end %><br />
-Location: <%= @listings.location %><br />
-Description: <%= @listings.description %><br /><br /> 
+<% end %><br /><br />
+Location: <%= @listings.location %><br /><br /> 
+Description: <%= @listings.description %><br /><br />
 Posted by: <%= @listings.user.username %>
 </div>
