@@ -20,7 +20,7 @@
         <%end %>
       </ul>
         <% if logged_in? %>
-      <p class="navbar-text navbar-right" style ="margin-right: 15px;"> Welcome, <%=current_user.username %></p>
+      <p class="navbar-text navbar-right" style ="margin-right: 15px;"> Welcome, <b><a href="/listings"><%=current_user.username %></a></b></p>
       <% end %>
     </nav>
 <div class="container">

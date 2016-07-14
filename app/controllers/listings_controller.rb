@@ -3,6 +3,7 @@ class ListingsController < ApplicationController
     redirect_if_not_logged_in
     @listings = current_user.listings
     @green_message = params[:success]
+    @yellow_message = params[:notify]
     erb :'listings/index'
   end
 
@@ -59,7 +60,7 @@ class ListingsController < ApplicationController
       @listing.save
       redirect to '/listings'
     else
-      redirect to '/listings'
+      redirect to '/listings?notify=You can not edit another users listing.'
     end
   end
 end
