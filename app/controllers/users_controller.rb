@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   get '/signup' do
+    @yellow_message = params[:notify]
     if !session[:user_id]
       erb :'users/new'
     else
@@ -32,7 +33,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect '/?success=You have successfully logged in.'
     else
-      redirect to '/signup'
+      redirect to '/signup?notify=This account does not exist. Please create an account.'
     end
   end
 
