@@ -6,7 +6,7 @@
   <input type="text" name="title" value="<%=@listing.title %>"> </br>
 
   <label> Price: </label>
-  <input type="text" name="price" value="<%=@listing.price %>"> </br>
+  <input type="text" name="price" value="<%="%.02f" % (@listing.price)%>"> </br>
 
   <label> Location: </label>
   <input type="text" name="location" value="<%=@listing.location %>">  </br>

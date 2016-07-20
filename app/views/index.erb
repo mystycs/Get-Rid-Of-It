@@ -2,7 +2,7 @@
 <h3> Listings: </h3>
 <% @listings.each_with_index do |listing, index| %>
   <% if index > 0 %><p>---</p><%end%>
-  <a href="/listings/<%=listing.id%>"><b><%= listing.title %></b></a> - $<%= listing.price %><br />
+  <a href="/listings/<%=listing.id%>"><b><%= listing.title %></b></a> - $<%=  "%.02f" % (listing.price) %><br />
   Location: <%= listing.location %><br />
   Description: <%= listing.description %><br />
 <% end %>

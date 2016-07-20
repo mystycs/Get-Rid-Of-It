@@ -1,9 +1,9 @@
 <div class="jumbotron">
-<b><%= @listings.title %></b> - $<%= @listings.price %>
+<b><%= @listings.title %></b> - $<%= "%.02f" % (@listings.price) %>
 <% if current_user.id == @listings.user.id %>
  - <a href="/listings/<%=@listings.id%>/edit">(edit)</a>
 <% end %><br /><br />
-Location: <%= @listings.location %><br /><br /> 
+Location: <%= @listings.location %><br /><br />
 Description: <%= @listings.description %><br /><br />
 Posted by: <%= @listings.user.username %>
 </div>
